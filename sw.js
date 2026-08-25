@@ -16,6 +16,7 @@ self.addEventListener("push", (event) => {
     data = { title: "BB Alerts", body: event.data && event.data.text() };
   }
   const title = data.title || "BB Alerts";
+  const isFailure = data.flag === "FAILURE";
   event.waitUntil(
     self.registration.showNotification(title, {
       body: data.body || "",
@@ -23,6 +24,10 @@ self.addEventListener("push", (event) => {
       icon: "./icons/icon-192.png",
       badge: "./icons/icon-192.png",
       data: { url: data.url || "./" },
+      // Failure alerts stay on screen and buzz hard where supported
+      // (Android/desktop; iOS uses its standard sound + banner).
+      requireInteraction: isFailure,
+      vibrate: isFailure ? [300, 100, 300, 100, 600] : [200],
     })
   );
 });
