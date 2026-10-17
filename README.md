@@ -1,6 +1,6 @@
 # BB Alerts
 
-View-only alerts for the SecretLab machines in BB Cloud dev. Watches the
+View-only alerts for the event machines in BB Cloud dev (current show: Adyen · Money 20/20 USA, 18–21 Oct 2026). Watches the
 incident feed around the clock and pushes an immediate notification for any
 **vend failure** (or other machine incident) — on wifi or mobile data.
 Nothing is ever changed in the cloud.
